@@ -1,0 +1,53 @@
+#: import ScreenOne view.screen_one.screen_one
+#: import ScreenTwo view.screen_two.screen_two
+#: import ScreenThree view.screen_three.screen_three
+
+<HomeScreen>:
+	MDBottomNavigation:
+	    panel_color: 1,1,1,1
+	    MDBottomNavigationItem:
+	        name: 'screen_nav_1'
+	        text: 'Python'
+	        icon: 'language-python'
+			ScreenManager:
+				ScreenOne:
+					name: 'python'
+					MDFloatingActionButton:
+					    icon: "qrcode"
+					    md_bg_color: app.theme_cls.primary_color
+					    pos_hint: {'center_x': .835}
+				Screen:
+					name: 'c'		            	
+				Screen:
+					name: 'js'
+		MDBottomNavigationItem:
+		    name: 'screen_nav_2'
+		    text: 'Python'
+		    icon: 'language-python'
+			ScreenManager:
+				ScreenTwo:
+					name: 'python'
+				Screen:
+					name: 'c'	            	
+				Screen:
+					name: 'js'
+		MDBottomNavigationItem:
+		    name: 'screen_nav_3'
+		    text: 'Profile'
+		    icon: 'language-python'
+			ScreenManager:
+				ScreenThree:
+					name: 'python'
+				Screen:
+					name: 'c'          	
+				Screen:
+					name: 'js'
+	# orientation:'vertical'
+    # MDBottomAppBar:
+
+   #      MDToolbar:
+   #          icon: "qrcode"
+   #          type: "bottom"
+			# left_action_items: [["menu", lambda x: nav_drawer.set_state("open")], ["menu", lambda x: nav_drawer.set_state("open")]]
+			# left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+			# # right_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]

@@ -1,0 +1,9 @@
+<ScreenOne>:
+	MDRaisedButton:
+		text: 'Home'
+		pos_hint: {'center_x': .5, 'center_y': .5}
+		on_release:
+			root.manager.current = 'c'
+    MDFloatingActionButtonSpeedDial:
+        data: root.data
+        root_button_anim: True

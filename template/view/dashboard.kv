@@ -1,0 +1,58 @@
+#: import HomeScreen view.home_screen.home_screen
+#: import LoginScreen view.login_screen.login_screen
+
+<Dashboard>:
+	orientation: 'vertical'
+
+    MDNavigationLayout:
+        # x: toolbar.height
+
+        ScreenManager:
+            id: screen_manager
+
+            # LoginScreen:
+            #     name: "login_name"
+
+            MDScreen:
+				name: "home_name"
+				BoxLayout:
+					orientation:'vertical'
+					MDToolbar:
+					    id: toolbar
+					    pos_hint: {"top": 1}
+					    elevation: 10
+					    title: "Template"
+					    left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+					    right_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+					HomeScreen:
+
+        MDNavigationDrawer:
+            id: nav_drawer
+
+            ContentNavigationDrawer:
+                screen_manager: screen_manager
+                nav_drawer: nav_drawer
+
+<ContentNavigationDrawer>:
+	MDBoxLayout:
+		orientation: 'vertical'
+		padding: ['10dp','10dp','10dp','10dp',]
+		MDCard:
+			FitImage:
+				source: 'assets/image/logo.png'
+
+	    ScrollView:
+
+	        MDList:
+
+	            OneLineListItem:
+	                text: "Home"
+	                on_press:
+	                    root.nav_drawer.set_state("close")
+	                    root.screen_manager.current = "home_name"
+
+	            OneLineListItem:
+	                text: "Logout"
+	                on_press:
+	                    root.nav_drawer.set_state("close")
+	                    root.screen_manager.current = "login_name"
